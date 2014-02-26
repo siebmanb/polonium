@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport"
+	content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, target-densitydpi=160" />
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/flat-ui.css">
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+	var onDeviceReady = function() {
+		navigator.splashscreen.hide();
+		window.plugin.notification.badge.clear();
+	}
+	
+	var onResume = function() {
+		window.plugin.notification.badge.clear();
+	}
+
+	document.addEventListener("deviceready", onDeviceReady);
+	document.addEventListener("resume", onResume);
+	window.addEventListener('load', function() {
+		FastClick.attach(document.body);
+	}, false);
+	
+</script>
+</head>
+<body>
+	<div id='content'></div>
+	<div class='page' color='#1abc9c' id='homeP'>
+		<img src="img/retina.svg">
+		Polonium is a sneaky radioactive element that kills you really slowly and painfully. <br><br>You get the same feeling when Internet is unreachable and you are waiting for it to come back!		
+		<div class='btn btn-block btn-lg btn-primary' id='start'>Next</div>
+	</div>
+	<div class='page' color='#3498db' id='launchP'>
+		<img src="img/clocks.svg">
+		Polonium will poll your network connection and send you a push notification when Internet is back and you can browse the world wide web again.
+		<div class='btn btn-block btn-lg btn-primary' id='launch'>Start</div>
+	</div>
+	<div class='page' color='#f1c40f' id='pollP'>
+		<img src="img/loop.svg">
+		<div class='trials'>I just tried for the 1st time, no luck.</div>
+		<div class='btn btn-block btn-lg btn-primary' id='stop'>Stop</div>
+	</div>
+	<div class='page' color='#e74c3c' id='successP'>
+		<img src="img/gift-box.svg">
+		<div>" Internet is back ! "</div>
+		<span>Polonium, at your service.</span>
+		<div class='btn btn-block btn-lg btn-primary' id='back'>Back</div>
+	</div>
+	
+	<script type='application/javascript' src='js/fastclick.js'></script>
+	<script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
