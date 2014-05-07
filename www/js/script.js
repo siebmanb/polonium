@@ -24,27 +24,31 @@ function changepage(name) {
 function attacheListeners() {
 	$('#content #start').on('click', function() {
 		changepage('launchP');
-		stop();
+//		stop();
 	});
 
 	$('#content #back').on('click', function() {
 		changepage('homeP');
-		stop();
+//		stop();
 	});
 
 	$('#content #stop').on('click', function() {
 		changepage('homeP');
-		stop();
+//		stop();
 	});
 
 	$('#content #launch').on('click', function() {
 		if(hostReachable()) {
-			stop();
+//			stop();
 			changepage('successP');
 		}else {
 			changepage('pollP');
 			$('.trials').html("I just tried for the 1st time, no luck.");
-			poll();
+			
+			var now = new Date().getTime(),
+		    _60_seconds_from_now = new Date(now + 10*1000);
+//			window.plugin.notification.local.onadd = function (id, state, json) { alert("ici"); };
+			window.plugin.notification.local.add({ id:1, sound: null, date: _60_seconds_from_now });
 		}
 	});
 }
@@ -52,10 +56,10 @@ function attacheListeners() {
 var watch;
 var trials = 1;
 function poll() {
-	if (window.plugin) window.plugin.backgroundMode.enable();
-	trials = 1;
-	watch = setInterval(function(){
-		trials++;
+//	if (window.plugin) window.plugin.backgroundMode.enable();
+//	trials = 1;
+//	watch = setInterval(function(){
+//		trials++;
 		if(hostReachable()) {
 			stop();
 			changepage('successP');
@@ -88,15 +92,16 @@ function poll() {
 			}
 			$('.trials').html("I just tried for the " + str + " time, no luck.");
 		}
-	},1000);
+//	},1000);
 }
 
-function stop() {
-	if (window.plugin) window.plugin.backgroundMode.disable();
-	window.clearInterval(watch);
-}
+//function stop() {
+//	if (window.plugin) window.plugin.backgroundMode.disable();
+//	window.clearInterval(watch);
+//}
 
 function hostReachable() {
+	return false;
 	// Handle IE and more capable browsers
 	var xhr = new ( window.ActiveXObject || XMLHttpRequest )( "Microsoft.XMLHTTP" );
 	var status;

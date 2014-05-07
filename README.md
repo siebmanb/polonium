@@ -18,6 +18,10 @@ or
 
 Then you will find your native project (XCode or Java) inside the platforms folder.
 
+## Apple
+
+This app has been refused by Apple because it uses geolocation to keep the app alive, even though the app does not need geolocation. Official quote: "Multitasking apps may only use background services for their intended purposes".
+
 ## Feedback
 
 If you have any feedback, feel free to contact me at siebmanb@gmail.com. If you have improvments for the app, just do a pull request.
